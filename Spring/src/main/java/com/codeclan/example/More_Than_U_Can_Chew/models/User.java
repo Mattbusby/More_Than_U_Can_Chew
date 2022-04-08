@@ -27,7 +27,7 @@ public class User {
     @Column(name="email")
     private String email;
 
-    @OneToMany(mappedBy = "user", fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"user", "bakery"})
     private List<Order> orders;
 

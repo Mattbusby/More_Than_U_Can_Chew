@@ -122,7 +122,7 @@ const MainContainer = () => {
 
 
     const handlePost = (user) => {
-        console.log(user);
+        // console.log(user);
         const request = new Request();
         const url = "/api/users";
         request.post(url, user)
@@ -135,6 +135,22 @@ const MainContainer = () => {
       const url = "/api/bakeries";
       request.post(url, bakery)
       .then(() => {window.location = "/bakeries"})
+    }
+
+    const handleDeleteB = (id) => {
+      const request = new Request();
+      const url = "/api/bakeries/" + {id};
+      request.delete(url, id)
+      .then(() => {window.location = "/bakeries"})
+    }
+
+    const handleDeleteU = (id) => {
+      id = selectedUser.id
+      console.log("This is the one Tam " + id);
+      const request = new Request();
+      const url = "/api/users/" + id;
+      request.delete(url)
+      .then(() => {window.location = "/users"})
     }
 
 
@@ -160,7 +176,7 @@ const MainContainer = () => {
 
           <Route path="/users/new" element={<NewUserForm selectedUser={selectedUser} onCreate={handlePost} />} />
 
-          <Route path="users/:id" element={<UserConsole selectedUser={selectedUser} bakeries={bakeries}/>}/>
+          <Route path="users/:id" element={<UserConsole handleDelete={handleDeleteU} selectedUser={selectedUser} bakeries={bakeries}/>}/>
 
           <Route path="/bakeries" element={<BakeryContainer bakeries={bakeries} setSelectedBakery={setSelectedBakery} selectedBakery={selectedBakery}/>}/>
           <Route path="/bakeries/new" element={<NewBakerForm selectedBakery={selectedBakery} onCreateB={handlePostB} />}/>

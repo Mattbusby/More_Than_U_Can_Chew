@@ -3,13 +3,13 @@ import BakeriesNearYou from './BakeriesNearYou'
 import "../stylesheets/Main.css";
 import UserNavBar from './UserNavBar';
 
-function UserConsole({selectedUser, bakeries}) {
+function UserConsole({selectedUser, bakeries, handleDelete}) {
 
 
   if(selectedUser.name){
     return (
       <>
-      <UserNavBar selectedUser={selectedUser}/>
+      <UserNavBar selectedUser={selectedUser} handleDelete={handleDelete}/>
       <div className='UserConsoleContainer'>
         <BakeriesNearYou bakeries={bakeries}/>
   
