@@ -33,7 +33,7 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        Bakery pita = new Bakery("Pain in the Ass","GEO1", "hello@painintheass.com", LocalTime.parse("18:00:00"));
+        Bakery pita = new Bakery("Pain in the Ass","G208QR", "hello@painintheass.com", LocalTime.parse("18:00:00"));
         bakeryRepository.save(pita);
         Bakery bakeThat = new Bakery("Bake That","GEO2", "gary@bakethat.com", LocalTime.parse("17:30:00"));
         bakeryRepository.save(bakeThat);

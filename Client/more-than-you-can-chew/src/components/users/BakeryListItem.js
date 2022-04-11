@@ -6,15 +6,15 @@ const BakeryListItem = ({bakery}) => {
 
 
   return (
-    <li className="bakeriesNearContainer">
-        <h2>{bakery.name}</h2>
-      <h3>Location: {bakery.location}</h3>
-      <h3>email: {bakery.email}</h3>
-      <h3>Collection Time: {bakery.collectionTime}</h3>
+    <ul className="bakeriesNearContainer">
+      <h2>{bakery.name}</h2>
+      <span> Location: {bakery.location}</span>
+      <span> Contact Email: {bakery.email}</span>
+      <span> Collection Time: {bakery.collectionTime}</span>
       <div className="App">
-      <MapBox /> 
-    </div>
-    </li>
+        <MapBox bakery={bakery}/> 
+      </div>
+    </ul>
   )
 }
 
